@@ -49,6 +49,9 @@
           <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.9.6" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-dbcp:9.0.39" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-juli:9.0.39" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:5.2.0.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">

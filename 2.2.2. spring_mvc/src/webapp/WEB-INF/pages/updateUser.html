@@ -3,32 +3,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Update</title>
+    <title>Edit</title>
 </head>
 <body>
-<div class="container">
+<div>
+    <a th:href="@{/admin}">Admin page</a>
 
-    <p class="h4 mb-4">Update User</p>
+    <a th:href="@{/users}">User info</a>
 
-    <form action="#" th:action="@{/update}"
-          th:object="${user}" method="post">
-
-        <input type="hidden" th:field="*{id}"/>
-
-        <input type="text" th:field="*{name}"
-               class="form-control mb-4 col-4" placeholder="name">
-
-        <input type="text" th:field="*{surname}"
-               class="form-control mb-4 col-4" placeholder="surname">
-
-        <button type="submit" class="btn btn-info col-2">Update</button>
-
-    </form>
-
-    <hr>
-    <a th:href="@{/}">Back to User List</a>
+    <a th:href="@{/logout}">Logout</a>
 </div>
 
+<form th:action="@{/updateUser}" method="post" th:object="${user}">
+    <input type="hidden" name="id" th:value="${user.id}">
+
+    <fieldset>
+        <legend>Edit user</legend>
+
+        <p>
+            <label th:for="name">UserName</label>
+            <input type="text" name="name" th:id="name" th:value="${user.name}">
+        </p>
+        <p>
+            <label th:for="surname">Surname</label>
+            <input type="text" name="surname" th:id="surname" th:value="${user.surname}">
+        </p>
+        <p>
+            <label th:for="password">Password</label>
+            <input type="text" name="password" th:id="password" th:value="${user.password}">
+        </p>
+        <p>
+            <label th:for="roles">Roles </label>
+            <select multiple name="roles" size="3" th:id="roles" required th:value="${user.roles}">
+                <option disabled>Select roles</option>
+                <option th:each="role : ${roles}" th:value="${role}" th:text="${role.role}"></option>
+            </select>
+        </p>
+    </fieldset>
+
+    <input type="submit" value="Edit user">
+</form>
 </body>
 
 </html>

@@ -3,22 +3,24 @@ package web.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import web.dao.RoleDao;
 import web.dao.UserDao;
 import web.dao.UserDaoImp;
+import web.model.Role;
 import web.model.User;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Transactional
 public class UserServiceImp implements UserService {
 
-    UserDao userDao = new UserDaoImp();
     @Autowired
-    public void setUserDao(UserDao userDao) {
-        this.userDao = userDao;
-    }
+    private  UserDao userDao;
 
+    @Autowired
+    private RoleDao roleDao;
     @Override
     public void create(User user) {
         userDao.create(user);
@@ -43,5 +45,20 @@ public class UserServiceImp implements UserService {
     @Override
     public void remove(Long id) {
         userDao.remove(id);
+    }
+
+    @Override
+    public User getUserByName(String name) {
+        return userDao.getUserByName(name);
+    }
+
+    @Override
+    public void newRole(Set<Role> roles) {
+        roleDao.newRole(roles);
+    }
+
+    @Override
+    public Set<Role> getRole() {
+        return roleDao.getRole();
     }
 }
