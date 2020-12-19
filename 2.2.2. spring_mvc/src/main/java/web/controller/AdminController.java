@@ -19,12 +19,6 @@ public class AdminController {
 	public void setUserService(UserService userService) {this.userService = userService;}
 
 
-
-	@GetMapping("/test")
-	public String test() {
-		return "/test";
-	}
-
 	@GetMapping(value = "/admin")
 	public String getAllUsers(ModelMap model) {
 		model.addAttribute("users", userService.getAllUsers());

@@ -16,11 +16,17 @@ import java.util.Set;
 @Transactional
 public class UserServiceImp implements UserService {
 
-    @Autowired
     private  UserDao userDao;
-
-    @Autowired
     private RoleDao roleDao;
+    @Autowired
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
+    @Autowired
+    public void setRoleDao(RoleDao roleDao) {
+        this.roleDao = roleDao;
+    }
+
     @Override
     public void create(User user) {
         userDao.create(user);

@@ -11,10 +11,11 @@ import web.dao.UserDao;
 public class UserDetailsServiceImp implements UserDetailsService {
 
     @Autowired
-    private UserDao userDao;
+    private final UserDao userDao;
 
     @Autowired
-    public UserDetailsServiceImp() {
+    public UserDetailsServiceImp(UserDao userDao) {
+        this.userDao = userDao;
     }
 
     @Override
