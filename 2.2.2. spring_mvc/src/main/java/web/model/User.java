@@ -25,6 +25,12 @@ public class User implements UserDetails, Serializable {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "age")
+    private byte age;
+
+    @Column(name = "email")
+    private String email;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
@@ -33,10 +39,12 @@ public class User implements UserDetails, Serializable {
 
     public User() {};
 
-    public User(String name, String surname, String password, Set<Role> roles) {
+    public User(String name, String surname, String password, String email,byte age, Set<Role> roles) {
         this.name = name;
         this.surname = surname;
         this.password = password;
+        this.email = email;
+        this.age = age;
         this.roles = roles;
     }
 
@@ -76,11 +84,31 @@ public class User implements UserDetails, Serializable {
         this.roles = roles;
     }
 
+    public byte getAge() {
+        return age;
+    }
+
+    public void setAge(byte age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
+                ", age=" + age +
+                ", email='" + email + '\'' +
+                ", roles=" + roles +
                 '}';
     }
 

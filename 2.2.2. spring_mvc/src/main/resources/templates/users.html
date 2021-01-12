@@ -3,34 +3,58 @@
 <html lang="en">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.springframework.org/security/tags">
 <head>
-    <head>
-        <title>Users</title>
-    </head>
+    <link rel="icon" href="spring_leaf_plant_nature_leaves_garden_environment_icon_133309.ico">
+    <meta charset="UTF-8">
+    <title>User page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper.js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
+
+</head>
+
 
 <body>
-<div>
-    <a th:href="@{/logout}">Logout</a>
+<div class="row bg-secondary text-white">
+    <div class="col-md-11"> <span th:text="${thisUser.email} +' with roles: ' +
+                                ${thisUser.roles}"></span></div>
+    <div class="col-md-1"><a class="text-white" th:href="@{/logout}"> Logout </a></div>
 </div>
-<h1 th:text="Users"></h1>
-<br/><br/>
-<div>
-    <table>
+
+<br>
+
+<div class="row " style="height: 100vh">
+    <nav class="nav flex-column nav-pills col-md-2" >
+        <a class="nav-link active" href="#">User</a>
+    </nav>
+
+    <div class="col-md-10" style="background-color: #F8F8FF">
+        <div class="container-fluid">
+            <h1>User information-page</h1>
+            <h5>About user</h5>
+    <table class="table table-striped">
         <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Password</th>
-            <th>Roles</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Role</th>
         </tr>
         <tr th:each ="user : ${users}">
-             <td th:utext="${user.id}">...</td>
-            <td th:utext="${user.name}">...</td>
-            <td th:utext="${user.surname}">...</td>
-            <td th:utext="${user.password}">...</td>
-            <td th:utext="${user.roles}">...</td>
-
+             <td th:utext="${user.id}"></td>
+            <td th:utext="${user.name}"></td>
+            <td th:utext="${user.surname}"></td>
+            <td th:utext="${user.age}"></td>
+            <td th:utext="${user.email}"></td>
+            <td>
+                <th:block th:each="role : ${user.roles}">
+                    <a th:text="${role.role} "></a>
+                </th:block>
+            </td>
         </tr>
     </table>
+        </div>
+        </div>
 </div>
 
 

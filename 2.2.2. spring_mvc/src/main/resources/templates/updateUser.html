@@ -1,48 +1,57 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit</title>
-</head>
-<body>
-<div>
-    <a th:href="@{/admin}">Admin page</a>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Edit</title>-->
+<!--</head>-->
+<!--&lt;!&ndash; CSS only &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">-->
+<!--&lt;!&ndash; JavaScript Bundle with Popper.js &ndash;&gt;-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>-->
+<!--<body>-->
+<!--<div>-->
+<!--    <a th:href="@{/admin}">Admin page</a>-->
 
-    <a th:href="@{/users}">User info</a>
+<!--    <a th:href="@{/users}">User info</a>-->
 
-    <a th:href="@{/logout}">Logout</a>
-</div>
+<!--    <a th:href="@{/logout}">Logout</a>-->
+<!--</div>-->
 
-<form th:action="@{/updateUser}" method="post" th:object="${user}">
-    <input type="hidden" name="id" th:value="${user.id}">
 
-    <fieldset>
-        <legend>Edit user</legend>
+<!--<form th:action="@{/updateUser}" method="post" th:object="${user}">-->
+<!--    <input type="hidden" name="id" th:value="${user.id}">-->
 
-        <p>
-            <label th:for="name">UserName</label>
-            <input type="text" name="name" th:id="name" th:value="${user.name}">
-        </p>
-        <p>
-            <label th:for="surname">Surname</label>
-            <input type="text" name="surname" th:id="surname" th:value="${user.surname}">
-        </p>
-        <p>
-            <label th:for="password">Password</label>
-            <input type="text" name="password" th:id="password" th:value="${user.password}">
-        </p>
-        <p>
-            <label th:for="roles">Roles </label>
-            <select multiple name="roles" size="3" th:id="roles" required th:value="${user.roles}">
-                <option disabled>Select roles</option>
-                <option th:each="role : ${roles}" th:value="${role}" th:text="${role.role}"></option>
-            </select>
-        </p>
-    </fieldset>
+<!--    <fieldset>-->
+<!--        <legend>Edit user</legend>-->
+<!--        <p>-->
+<!--            <label th:for="id">Id</label>-->
+<!--            <input type="text" name="id" th:id="id" th:value="${user.id}">-->
+<!--        </p>-->
 
-    <input type="submit" value="Edit user">
-</form>
-</body>
+<!--        <p>-->
+<!--            <label th:for="name">UserName</label>-->
+<!--            <input type="text" name="name" th:id="name" th:value="${user.name}">-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label th:for="surname">Surname</label>-->
+<!--            <input type="text" name="surname" th:id="surname" th:value="${user.surname}">-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label th:for="password">Password</label>-->
+<!--            <input type="text" name="password" th:id="password" th:value="${user.password}">-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label th:for="roles">Roles </label>-->
+<!--            <select multiple name="roles" size="3" th:id="roles" required th:value="${user.roles}">-->
+<!--                <option disabled>Select roles</option>-->
+<!--                <option th:each="role : ${roles}" th:value="${role}" th:text="${role.role}"></option>-->
+<!--            </select>-->
+<!--        </p>-->
+<!--    </fieldset>-->
 
-</html>
+<!--    <input type="submit" value="Edit user">-->
+<!--</form>-->
+<!--</body>-->
+
+<!--</html>-->
